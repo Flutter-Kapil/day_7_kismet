@@ -17,8 +17,12 @@ class _KismetAppState extends State<KismetApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //TODO: Step 1 - Add background.png to this Container as a background image. (Remember to add it to pubspec.yaml)
       body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+          image: AssetImage("assets/background.png"),
+          fit: BoxFit.cover,
+        )),
         padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
         constraints: BoxConstraints.expand(),
         child: SafeArea(
