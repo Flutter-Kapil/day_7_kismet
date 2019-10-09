@@ -36,23 +36,50 @@ class StoryBrain {
   ];
 
   String getStory() {
-    return StoryBrain().storyData[storyNumber].storyTitle;
+    return storyData[storyNumber].storyTitle;
   }
 
   String getChoice1() {
-    return StoryBrain().storyData[storyNumber].choice1;
+    return storyData[storyNumber].choice1;
   }
 
   String getChoice2() {
-    return StoryBrain().storyData[storyNumber].choice2;
+    return storyData[storyNumber].choice2;
+  }
+
+  nextStory(int choiceNumber) {
+    print("initial $storyNumber");
+    if (choiceNumber == 1 && storyNumber == 0) {
+      storyNumber = 2;
+    } else if (choiceNumber == 2 && storyNumber == 0) {
+      storyNumber = 1;
+    } else if (choiceNumber == 1 && storyNumber == 1) {
+      storyNumber = 2;
+    } else if (choiceNumber == 2 && storyNumber == 1) {
+      storyNumber = 3;
+    } else if (choiceNumber == 1 && storyNumber == 2) {
+      storyNumber = 5;
+    } else if (choiceNumber == 2 && storyNumber == 2) {
+      storyNumber = 4;
+    } else if (storyNumber == 3 || storyNumber == 4 || storyNumber == 5) {
+      reset();
+    }
+    print("final $storyNumber");
+  }
+
+  reset() {
+    storyNumber = 0;
+  }
+
+  bool buttonShouldBeVisible() {
+    if (storyNumber == 0 || storyNumber == 1 || storyNumber == 2) {
+      return true;
+    } else
+      return false;
   }
 }
 
-// TODO: Step 8 - Create a method called nextStory(), it should not have any outputs but it should have 1 input called choiceNumber which will be the choice number (int) made by the user.
-
 // TODO: Step 10 - Download the story plan here: https://drive.google.com/file/d/1g6b8P6kyk_l36TT6XsIS8Su3qDMjG-AB/view?usp=sharing and using the story plan, update nextStory() to change the storyNumber depending on the choice made by the user. e.g. if choiceNumber was equal to 1 and the storyNumber is 0, the storyNumber should become 2.
-
-// TODO: Step 11 - In nextStory() if the storyNumber is equal to 3 or 4 or 5, that means it's the end of the game and it should call a method called restart() that resets the storyNumber to 0. (Create the method called restart)
 
 // TODO: Step 12 - Run the app and try to figure out what code you need to add to this file to make the story change when you press on the choice buttons.
 
