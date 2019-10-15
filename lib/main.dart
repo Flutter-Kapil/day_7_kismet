@@ -19,6 +19,7 @@ class _KismetAppState extends State<KismetApp> {
   @override
   List<Story> allStories = StoryData().stories;
   Widget build(BuildContext context) {
+    bool show = allStories[i].choice2Result == null ? false : true;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -70,7 +71,7 @@ class _KismetAppState extends State<KismetApp> {
                 flex: 2,
                 //TODO: Step 14 - Use a Flutter Visibility Widget to wrap this FlatButton and set the "visible" property of the Visibility Widget to equal the output from the buttonShouldBeVisible() method in the storyBrain.
                 child: Visibility(
-                  visible: storyBrain.buttonShouldBeVisible(),
+                  visible: show,
                   child: FlatButton(
                     onPressed: () {
                       print(storyBrain.storyNumber);
