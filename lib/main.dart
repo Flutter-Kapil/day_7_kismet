@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'story_brain.dart';
+import 'storyData.dart';
 
 void main() => runApp(MaterialApp(
       theme: ThemeData.dark(),
@@ -13,8 +14,10 @@ class KismetApp extends StatefulWidget {
 
 // TODO: Step 15 - Run your app and see if it works as expected
 class _KismetAppState extends State<KismetApp> {
+  int i = 0;
   StoryBrain storyBrain = StoryBrain();
   @override
+  List<Story> allStories = StoryData().stories;
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -33,7 +36,7 @@ class _KismetAppState extends State<KismetApp> {
                 flex: 12,
                 child: Center(
                   child: Text(
-                    storyBrain.getStory(),
+                    allStories[i].story,
                     style: TextStyle(
                       fontSize: 25.0,
                     ),
@@ -45,13 +48,15 @@ class _KismetAppState extends State<KismetApp> {
                 child: FlatButton(
                   onPressed: () {
                     setState(() {
-                      storyBrain.nextStory(1);
+                      int temp = allStories[i].choice1Result;
+                      print("temp $temp i $i");
+                      i = temp;
                     });
                     //TODO: Step 9 - Call the nextStory() method from storyBrain and pass the number 1 as the choice made by the user, do the same for choice2 button and pass number 2 in that case
                   },
                   color: Colors.red,
                   child: Text(
-                    storyBrain.getChoice1(),
+                    allStories[i].choice1,
                     style: TextStyle(
                       fontSize: 20.0,
                     ),
@@ -70,12 +75,13 @@ class _KismetAppState extends State<KismetApp> {
                     onPressed: () {
                       print(storyBrain.storyNumber);
                       setState(() {
-                        storyBrain.nextStory(2);
+                        int temp = allStories[i].choice2Result;
+                        i = temp;
                       });
                     },
                     color: Colors.blue,
                     child: Text(
-                      storyBrain.getChoice2(),
+                      allStories[i].choice2,
                       style: TextStyle(
                         fontSize: 20.0,
                       ),
