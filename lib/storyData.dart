@@ -45,7 +45,7 @@ class StoryData {
     "story": "You are trapped in the jungle trying to find a way out, but it is end of your journey as a poisonous snake bites you and you die painfully",
     "choice1": "Restart",
     "choice1_result": 0,
-    "choice2": "",
+    "choice2": null,
     "choice2_result": null
    },
   {
@@ -53,7 +53,7 @@ class StoryData {
     "story": "He goes inside, you act smart and try to peek in the cabin. You follow the blood trail to the back of cabin and discover one of your friends lying there. As you turn to run, a sharp pain arises in your shoulder and everything goes dark. You have escaped from this world",
     "choice1": "Restart",
     "choice1_result": 0,
-    "choice2": "",
+    "choice2": null,
     "choice2_result": null
    },
   {
@@ -61,7 +61,7 @@ class StoryData {
     "story": "He gives you sleeping bag, put a bonfire to keep you warm, gives you food and you both bond over anatomy of human body. In morning he takes you out of jungle and promises you to invite for his next 'hunt'",
     "choice1": "Restart",
     "choice1_result": 0,
-    "choice2": "",
+    "choice2": null,
     "choice2_result": null
    }
 ]

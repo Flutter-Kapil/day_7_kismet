@@ -14,12 +14,12 @@ class KismetApp extends StatefulWidget {
 
 // TODO: Step 15 - Run your app and see if it works as expected
 class _KismetAppState extends State<KismetApp> {
+  String choice2;
   int i = 0;
   StoryBrain storyBrain = StoryBrain();
   @override
   List<Story> allStories = StoryData().stories;
   Widget build(BuildContext context) {
-    bool show = allStories[i].choice2Result == null ? false : true;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -71,7 +71,7 @@ class _KismetAppState extends State<KismetApp> {
                 flex: 2,
                 //TODO: Step 14 - Use a Flutter Visibility Widget to wrap this FlatButton and set the "visible" property of the Visibility Widget to equal the output from the buttonShouldBeVisible() method in the storyBrain.
                 child: Visibility(
-                  visible: show,
+                  visible: allStories[i].choice2Result == null ? false : true,
                   child: FlatButton(
                     onPressed: () {
                       print(storyBrain.storyNumber);
@@ -82,7 +82,9 @@ class _KismetAppState extends State<KismetApp> {
                     },
                     color: Colors.blue,
                     child: Text(
-                      allStories[i].choice2,
+                      allStories[i].choice2 == null
+                          ? ""
+                          : allStories[i].choice2,
                       style: TextStyle(
                         fontSize: 20.0,
                       ),
