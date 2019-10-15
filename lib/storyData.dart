@@ -75,9 +75,9 @@ class StoryData {
           storyMap['storyNumber'],
           storyMap['story'],
           storyMap['choice1'],
-          storyMap['choice1Result'],
+          storyMap['choice1_result'],
           storyMap['choice2'],
-          storyMap['choice1Result']));
+          storyMap['choice2_result']));
     });
   }
 }
